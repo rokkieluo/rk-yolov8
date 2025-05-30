@@ -120,11 +120,11 @@ class Detect(nn.Module):
             y.append(t1)
             y.append(t2)
         return y
-        
+
         """Concatenate and return predicted bounding boxes and class probabilities."""
         if self.end2end:
             return self.forward_end2end(x)
-        
+
         for i in range(self.nl):
             x[i] = torch.cat((self.cv2[i](x[i]), self.cv3[i](x[i])), 1)
         if self.training:  # Training path
@@ -287,7 +287,7 @@ class Segment(Detect):
         mc = [self.cv4[i](x[i]) for i in range(self.nl)]
         x = self.detect(self, x)
         return x, mc, p
-    
+
         mc = torch.cat([self.cv4[i](x[i]).view(bs, self.nm, -1) for i in range(self.nl)], 2)  # mask coefficients
         x = Detect.forward(self, x)
         if self.training:

@@ -306,36 +306,70 @@ class Model(torch.nn.Module):
         self.model_name = weights
 
         print("===========  onnx =========== ")
-        import torch
         import sys
+
+        import torch
+
         model = sys.argv[1]
         dummy_input = torch.randn(1, 3, 640, 640)
-        if model == 'det':
+        if model == "det":
             print("===========  det-onnx start =========== ")
             input_names = ["data"]
             output_names = ["reg1", "cls1", "reg2", "cls2", "reg3", "cls3"]
-            torch.onnx.export(self.model, dummy_input, "./weights/yolov8n.onnx", verbose=False, input_names=input_names, output_names=output_names, opset_version=11)
+            torch.onnx.export(
+                self.model,
+                dummy_input,
+                "./weights/yolov8n.onnx",
+                verbose=False,
+                input_names=input_names,
+                output_names=output_names,
+                opset_version=11,
+            )
             print("======================== convert det-onnx Finished! .... ")
 
-        if model == 'seg':
+        if model == "seg":
             print("===========  seg-onnx start =========== ")
             input_names = ["data"]
             output_names = ["cls1", "reg1", "cls2", "reg2", "cls3", "reg3", "mc1", "mc2", "mc3", "seg"]
-            torch.onnx.export(self.model, dummy_input, "./weights//yolov8n-seg.onnx", verbose=False, input_names=input_names, output_names=output_names, opset_version=12)
+            torch.onnx.export(
+                self.model,
+                dummy_input,
+                "./weights//yolov8n-seg.onnx",
+                verbose=False,
+                input_names=input_names,
+                output_names=output_names,
+                opset_version=12,
+            )
             print("======================== convert seg-onnx Finished! .... ")
 
-        if model == 'pose':
+        if model == "pose":
             print("===========  pose-onnx start =========== ")
             input_names = ["data"]
             output_names = ["cls1", "reg1", "cls2", "reg2", "cls3", "reg3", "ps1", "ps2", "ps3"]
-            torch.onnx.export(self.model, dummy_input, "./weights/yolov8n-pose.onnx", verbose=False, input_names=input_names, output_names=output_names, opset_version=11)
+            torch.onnx.export(
+                self.model,
+                dummy_input,
+                "./weights/yolov8n-pose.onnx",
+                verbose=False,
+                input_names=input_names,
+                output_names=output_names,
+                opset_version=11,
+            )
             print("======================== convert onnx Finished! .... ")
 
-        if model == 'obb':
+        if model == "obb":
             print("===========  obb-onnx start =========== ")
             input_names = ["data"]
             output_names = ["reg1", "cls2", "reg3", "cls4", "reg5", "cls6", "ang1", "ang2", "ang3"]
-            torch.onnx.export(self.model, dummy_input, "./weights/yolov8n-obb.onnx", verbose=False, input_names=input_names, output_names=output_names, opset_version=11)
+            torch.onnx.export(
+                self.model,
+                dummy_input,
+                "./weights/yolov8n-obb.onnx",
+                verbose=False,
+                input_names=input_names,
+                output_names=output_names,
+                opset_version=11,
+            )
             print("======================== convert obb-onnx Finished! .... ")
 
     def _check_is_pytorch_model(self) -> None:

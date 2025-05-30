@@ -1,6 +1,6 @@
 #### Get model optimized for RKNN
 
-关于如何导出适配RK3588的yolov8模型，请参考[rk-yolov8/RK3588的yolov8模型转换(pt2onnx).md at main · rokkieluo/rk-yolov8](https://github.com/rokkieluo/rk-yolov8/blob/main/RK3588的yolov8模型转换(pt2onnx).md)，该优化只在导出模型时生效，训练代码按照原仓库的指引即可。
+关于如何导出适配RK3588的yolov8模型，请参考[rk-yolov8/RK3588的yolov8模型转换(pt2onnx).md at main · rokkieluo/rk-yolov8](<https://github.com/rokkieluo/rk-yolov8/blob/main/RK3588的yolov8模型转换(pt2onnx).md>)，该优化只在导出模型时生效，训练代码按照原仓库的指引即可。
 
 <div align="center">
   <p>

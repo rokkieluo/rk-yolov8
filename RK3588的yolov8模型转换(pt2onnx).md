@@ -61,7 +61,7 @@ elif model_type == 'obb':
 model = YOLO("./weights/yolov8n.pt")
 ```
 
-改为你自己对应的模型文件yaml
+改为你自己对应的模型文件
 
 第四步：运行
 
